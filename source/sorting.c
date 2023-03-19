@@ -28,7 +28,9 @@ void	lets_sort(t_data *data)
 		i++;
 	}
 	sort_three(data);
-	lets_move(data);
+	while (data->len_b > 0)
+		lets_move(data);
+	//chequear si ha quedado ordenado
 }
 
 void	lets_move(t_data *data)
@@ -44,6 +46,7 @@ void	lets_move(t_data *data)
 		costs(data, i);
 		i++;
 	}
+	//efectuar los movimientos
 }
 
 void targetpos(t_data *data)
