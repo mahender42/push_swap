@@ -119,14 +119,14 @@ int	main(int argc, char **argv)
 	ft_printf("stack_a (index)\n");
 	while (i < data.len_a)
 	{
-		ft_printf("%d(%d), ", data.stack_a[i].value, data.stack_a[i].index);
+		ft_printf("%d(i%d)<p%d>, ", data.stack_a[i].value, data.stack_a[i].index, data.stack_a[i].pos);
 		i++;
 	}
 	ft_printf("\nstack_b (index)\n");
 	i = 0;
 	while (i < data.len_b)
 	{
-		ft_printf("%d(%d), ", data.stack_b[i].value, data.stack_b[i].index);
+		ft_printf("%d[i%d]<p%d>{tp%d}(ca%d)(cb%d), ", data.stack_b[i].value, data.stack_b[i].index, data.stack_b[i].pos, data.stack_b[i].target_pos, data.stack_b[i].cost_a, data.stack_b[i].cost_b);
 		i++;
 	}
 	ft_printf("\n"); // hasta quí

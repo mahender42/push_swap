@@ -61,3 +61,15 @@ void	is_rep(t_data *data)
 		i++;
 	}
 }
+
+void	whereiam(t_stack *stack)
+{
+	int	i;
+
+	i = 0;
+	while (stack[i].index != '\0')
+	{
+		stack[i].pos = i;
+		i++;
+	}
+}

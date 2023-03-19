@@ -83,5 +83,10 @@ int				is_sorted(t_stack *stack, int len);
 
 void			sort_three(t_data *data);
 void			lets_sort(t_data *data);
+void			whereiam(t_stack *stack);
+void			targetpos(t_data *data);
+void 			costs(t_data *data, int i);
+void			total_cost(t_data *data, int i);
+void			lets_move(t_data *data);
 
 #endif
