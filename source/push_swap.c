@@ -115,6 +115,7 @@ int	main(int argc, char **argv)
 		sort_three(&data);
 	else if (data.len_a > 3)
 		lets_sort(&data);
+	ft_printf("The cheapest: pos %d\n", data.cheap);
 	i = 0; // borrar
 	ft_printf("stack_a (index)\n");
 	while (i < data.len_a)

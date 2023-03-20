@@ -40,6 +40,10 @@ typedef struct s_data
 	t_stack		*stack_b;
 	int			len_a;
 	int			len_b;
+	int			cheap;
+	int			pos_a_max;
+	int			pos_a_min;
+	int			pos_a_next;
 }	t_data;
 
 // validación
@@ -85,8 +89,12 @@ void			sort_three(t_data *data);
 void			lets_sort(t_data *data);
 void			whereiam(t_stack *stack);
 void			targetpos(t_data *data);
-void 			costs(t_data *data, int i);
+void			costs(t_data *data, int i);
 void			total_cost(t_data *data, int i);
 void			lets_move(t_data *data);
+void			the_cheapest(t_data *data);
+int				max_a(t_data *data);
+int				min_a(t_data *data);
+int				next_one(t_data *data, int pos);
 
 #endif
