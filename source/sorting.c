@@ -15,21 +15,25 @@
 void	lets_sort(t_data *data)
 {
 	int	med;
-	int	i;
+//	int	i;
 
 	med = data->len_a / 2;
-	i = 0;
 	while (data->len_a > 3)
 	{	
-		if ((data->stack_a[i].index > med) && (data->len_b < med))
+//		ft_printf("index: %d, len_b: %d, med: %d\n", data->stack_a[0].index, data->len_b, med);
+		if ((data->stack_a[0].index > med) && (data->len_b < med))
 			rotate_a(data, 0);
 		else
 			push_b(data);
-		i++;
 	}
 	sort_three(data);
+	whereiam(data, 'a');
+	whereiam(data, 'b');
 	while (data->len_b > 0)
+	{
 		lets_move(data);
+		print_stack(data);
+	}
 	//chequear si ha quedado ordenado
 }
 
@@ -40,14 +44,14 @@ void	lets_move(t_data *data)
 	i = 0;
 	while (i < data->len_b)
 	{
-		whereiam(data, 'a');
-		whereiam(data, 'b');
 		targetpos(data, i);
 		costs(data, i);
 		i++;
 	}
 	the_cheapest(data);
 	move(data);
+	whereiam(data, 'a');
+	whereiam(data, 'b');
 }
 
 void	targetpos(t_data *data, int i)
@@ -64,42 +68,81 @@ void	targetpos(t_data *data, int i)
 	}
 }
 
+
+void	move_new(t_data *data)
+{
+	int	pos;
+
+	pos = data->cheap;
+
+	// fijarse si hay que hacer movimientos en a
+	if (data->stack_b[pos].cost_a != 0)
+	{
+		// sino, fijarse en b y hacer mov
+		if (data->stack_b[pos].cost_b != 0)
+		{
+			if (data->stack_b[pos].cost_a > 0 && data->stack_b[pos].cost_b > 0)
+				//funcion rotate
+			
+		}
+
+	}
+	// si hay 0 movimientos en a continuar
+	else
+	{
+		//  fijarse si hay movimientos en b
+		if (data->stack_b[pos].cost_b != 0)
+		{
+		// sino, hacer mov
+		}
+	}
+
+	// si hay 0 movimientos continuar
+
+
+
+	push_a(data);	
+
+}
+
+
 void	move(t_data *data)
 {
 	int	pos;
 
 	pos = data->cheap;
+
 	while (data->stack_b[pos].cost_a > 0 && data->stack_b[pos].cost_b > 0)
 	{
-		rotate_ab(data);
 		data->stack_b[pos].cost_a--;
 		data->stack_b[pos].cost_b--;
+		rotate_ab(data);
 	}
 	while (data->stack_b[pos].cost_a < 0 && data->stack_b[pos].cost_b < 0)
 	{
-		reverse_ab(data);
 		data->stack_b[pos].cost_a++;
 		data->stack_b[pos].cost_b++;
+		reverse_ab(data);
 	}
 	while (data->stack_b[pos].cost_a > 0)
 	{
-		rotate_a(data, 0);
 		data->stack_b[pos].cost_a--;
+		rotate_a(data, 0);
 	}
 	while (data->stack_b[pos].cost_b > 0)
 	{
-		rotate_b(data, 0);
 		data->stack_b[pos].cost_b--;
+		rotate_b(data, 0);
 	}
 	while (data->stack_b[pos].cost_a < 0)
 	{
-		reverse_a(data, 0);
 		data->stack_b[pos].cost_a++;
+		reverse_a(data, 0);
 	}
 	while (data->stack_b[pos].cost_b < 0)
 	{
-		reverse_b(data, 0);
 		data->stack_b[pos].cost_b++;
+		reverse_b(data, 0);
 	}
 	push_a(data);	
 }

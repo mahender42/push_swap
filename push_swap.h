@@ -98,4 +98,8 @@ int				min_a(t_data *data);
 int				next_one(t_data *data, int pos);
 void			move(t_data *data);
 
+
+// borrar
+void			print_stack(t_data *data);
+
 #endif
