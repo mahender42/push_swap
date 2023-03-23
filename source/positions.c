@@ -18,13 +18,13 @@ int	max_a(t_data *data)
 	int	i;
 
 	i = 0;
-	max = data->stack_a[i].index;
+	max = data->stack_a[0].index;
 	while (i < data->len_a)
 	{
 		if (data->stack_a[i].index > max)
 		{
 			max = data->stack_a[i].index;
-			data->pos_a_max = i;
+			data->pos_a_max = data->stack_a[i].pos;
 		}
 		i++;
 	}
@@ -37,13 +37,14 @@ int	min_a(t_data *data)
 	int	i;
 
 	i = 0;
-	min = data->stack_a[i].index;
-	while (i > data->len_a)
+	min = data->stack_a[0].index;
+	data->pos_a_min = data->stack_a[0].pos;
+	while (i < data->len_a)
 	{
 		if (data->stack_a[i].index < min)
 		{
 			min = data->stack_a[i].index;
-			data->pos_a_min = i;
+			data->pos_a_min = data->stack_a[i].pos;
 		}
 		i++;
 	}
@@ -57,13 +58,14 @@ int	next_one(t_data *data, int pos)
 
 	i = 0;
 	next = max_a(data);
+	data->pos_a_next = data->pos_a_max;
 	while (i < data->len_a)
 	{
 		if (data->stack_b[pos].index < data->stack_a[i].index
 			&& data->stack_a[i].index < next)
 		{
 			next = data->stack_a[i].index;
-			data->pos_a_next = i;
+			data->pos_a_next = data->stack_a[i].pos;
 		}
 		i++;
 	}

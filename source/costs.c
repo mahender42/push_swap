@@ -15,14 +15,22 @@
 void	the_cheapest(t_data *data)
 {
 	int	i;
+	int	aux;
+	int	aux_pos;
 
 	i = 0;
+	aux = data->stack_b[i].total_cost;
+	aux_pos = data->stack_b[i].pos;
 	while (i < data->len_b)
 	{
-		if (data->stack_b[i].total_cost < data->stack_b[i + 1].total_cost)
-			data->cheap = data->stack_b[i].pos;
+		if (data->stack_b[i].total_cost < aux)
+		{
+			aux = data->stack_b[i].total_cost;
+			aux_pos = data->stack_b[i].pos;
+		}
 		i++;
 	}
+	data->cheap = aux_pos;
 }
 
 void	costs(t_data *data, int i)

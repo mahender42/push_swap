@@ -62,14 +62,25 @@ void	is_rep(t_data *data)
 	}
 }
 
-void	whereiam(t_stack *stack)
+void	whereiam(t_data *data, char c)
 {
 	int	i;
 
 	i = 0;
-	while (stack[i].index != '\0')
+	if (c == 'a')
 	{
-		stack[i].pos = i;
-		i++;
+		while (i < data->len_a && data->len_a > 0)
+		{
+			data->stack_a[i].pos = i;
+			i++;
+		}
+	}
+	else if (c == 'b')
+	{
+		while (i < data->len_b && data->len_b > 0)
+		{
+			data->stack_b[i].pos = i;
+			i++;
+		}
 	}
 }
