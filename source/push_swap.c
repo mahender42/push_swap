@@ -93,17 +93,17 @@ void	check_args(t_data *data, int argc, char **argv)
 	is_rep(data);
 }
 
-static void	leaks(void)
+/*static void	leaks(void)
 {
 	system ("leaks -q push_swap");
-}
+}*/
 
 int	main(int argc, char **argv)
 {
 	t_data	data;
-	int		i; // borrar
+//	int		i; // borrar
 
-	atexit(leaks);
+//	atexit(leaks);
 	if (argc <= 1)
 		return (0);
 	else if (argc == 2)
@@ -115,25 +115,8 @@ int	main(int argc, char **argv)
 		sort_three(&data);
 	else if (data.len_a > 3)
 		lets_sort(&data);
-	ft_printf("The cheapest: pos %d\n", data.cheap);
-	i = 0; // borrar
-	ft_printf("stack_a (index)\n");
-	while (i < data.len_a)
-	{
-		ft_printf("%d(i%d)<p%d>, ", data.stack_a[i].value,
-			data.stack_a[i].index, data.stack_a[i].pos);
-		i++;
-	}
-	ft_printf("\nstack_b (index)\n");
-	i = 0;
-	while (i < data.len_b)
-	{
-		ft_printf("%d[i%d]<p%d>{tp%d}(ca%d)(cb%d)(tc%d), ", data.stack_b[i].value,
-			data.stack_b[i].index, data.stack_b[i].pos, data.stack_b[i].target_pos,
-			data.stack_b[i].cost_a, data.stack_b[i].cost_b, data.stack_b[i].total_cost);
-		i++;
-	}
-	ft_printf("\n"); // hasta aquí
+//	ft_printf("The cheapest: pos %d\n", data.cheap);
+//	print_stack(data);
 	free_all(&data);
 	return (0);
 }
