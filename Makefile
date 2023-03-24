@@ -16,7 +16,7 @@ SRC_PATH = ./source/
 
 SRC = $(addprefix $(SRC_PATH)/, \
 push_swap.c utils.c exiting.c push.c reverse.c rotate.c swap.c put_index.c \
-sort_three.c sorting.c costs.c positions.c \
+sort_three.c sorting.c costs.c positions.c move.c \
 )
 
 OBJS = ${SRC:.c=.o}

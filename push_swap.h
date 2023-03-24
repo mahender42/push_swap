@@ -97,9 +97,11 @@ int				max_a(t_data *data);
 int				min_a(t_data *data);
 int				next_one(t_data *data, int pos);
 void			move(t_data *data);
-
+void 			move_rot (t_data *data);
+void			move_rev (t_data *data);
 
 // borrar
+
 void			print_stack(t_data *data);
 
 #endif

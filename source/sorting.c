@@ -32,7 +32,7 @@ void	lets_sort(t_data *data)
 	while (data->len_b > 0)
 	{
 		lets_move(data);
-		print_stack(data);
+		ft_printf("\nlen_b = %d\n", data->len_b);
 	}
 	//chequear si ha quedado ordenado
 }
@@ -49,6 +49,7 @@ void	lets_move(t_data *data)
 		i++;
 	}
 	the_cheapest(data);
+	print_stack(data); // borrar
 	move(data);
 	whereiam(data, 'a');
 	whereiam(data, 'b');
@@ -68,7 +69,18 @@ void	targetpos(t_data *data, int i)
 	}
 }
 
+void	move(t_data *data)
+{
+	int	i;
 
+	i = data->cheap;
+	if (data->stack_b[i].cost_a < 0 || data->stack_b[i].cost_b < 0)
+		move_rev(data);
+	if (data->stack_b[i].cost_a > 0 || data->stack_b[i].cost_b > 0)
+		move_rot(data);
+	push_a(data);
+}
+/*
 void	move_new(t_data *data)
 {
 	int	pos;
@@ -82,27 +94,34 @@ void	move_new(t_data *data)
 		if (data->stack_b[pos].cost_b != 0)
 		{
 			if (data->stack_b[pos].cost_a > 0 && data->stack_b[pos].cost_b > 0)
-				//funcion rotate
-			
+			{
+					//funcion rotate a b
+			}
+			else if (data->stack_b[pos].cost_a < 0 && data->stack_b[pos].cost_b < 0)
+			{
+				//funci'on reverse a b
+			}
 		}
-
+		else
+		{
+			// funcion rotate solo a
+		}
 	}
 	// si hay 0 movimientos en a continuar
 	else
 	{
 		//  fijarse si hay movimientos en b
-		if (data->stack_b[pos].cost_b != 0)
+		if (data->stack_b[pos].cost_b > 0)
 		{
-		// sino, hacer mov
+		// funcon rotate b
+		}
+		else if (data->stack_b[pos].cost_b < 0)
+		{
+			// funcion reverse b
 		}
 	}
-
 	// si hay 0 movimientos continuar
-
-
-
 	push_a(data);	
-
 }
 
 
@@ -146,3 +165,4 @@ void	move(t_data *data)
 	}
 	push_a(data);	
 }
+*/
