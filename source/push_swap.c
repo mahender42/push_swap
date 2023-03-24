@@ -54,10 +54,10 @@ void	check_arg(t_data *data, char **argv)
 	while (i < data->num_len)
 	{
 		if (!is_int(data->num_mat[i]) || !check_signs(data->num_mat[i]))
-			exit_mat(data, "Error num.\n");
+			exit_mat(data, "Error\n");
 		if (ft_atoli(data->num_mat[i]) > INT_MAX
 			|| ft_atoli(data->num_mat[i]) < INT_MIN)
-			exit_mat(data, "Error min/max.\n");
+			exit_mat(data, "Error\n");
 		else
 			data->num_list[i] = ft_atoli(data->num_mat[i]);
 			//ft_printf("%d", data->num_list[i]);
@@ -79,9 +79,9 @@ void	check_args(t_data *data, int argc, char **argv)
 	while (i <= data->num_len)
 	{
 		if (!is_int(argv[i]) || !check_signs(argv[i]))
-			exit_num(data, "Error num.\n");
+			exit_num(data, "Error\n");
 		else if (ft_atoli(argv[i]) > INT_MAX || ft_atoli(argv[i]) < INT_MIN)
-			exit_num(data, "Error min/max.\n");
+			exit_num(data, "Error\n");
 		else
 		{
 			data->num_list[i - 1] = ft_atoli(argv[i]);

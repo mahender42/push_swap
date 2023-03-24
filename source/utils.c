@@ -55,7 +55,7 @@ void	is_rep(t_data *data)
 		while (j < data->num_len)
 		{
 			if (data->num_list[i] == data->num_list[j])
-				exit_num(data, "Error, repeated num\n"); // borrar repeated num
+				exit_num(data, "Error\n"); // borrar repeated num
 			j++;
 		}
 		i++;
