@@ -41,6 +41,7 @@ void	move_rev(t_data *data)
 			i = (i + 1) % data->len_b;
 		}
 	}
+	data->cheap = i;
 }
 
 void	move_rot(t_data *data)
@@ -53,7 +54,7 @@ void	move_rot(t_data *data)
 		data->stack_b[i].cost_a--;
 		data->stack_b[i].cost_b--;
 		rotate_ab(data);
-		i = (i - 1) % data->len_b;
+		i--; //i = (i - 1) % data->len_b;
 	}
 	if (data->stack_b[i].cost_a > 0)
 	{
@@ -69,7 +70,7 @@ void	move_rot(t_data *data)
 		{
 			data->stack_b[i].cost_b--;
 			rotate_b(data, 0);
-			i = (i - 1) % data->len_b;
+			i--; //i = (i - 1) % data->len_b;
 		}
 	}
 }

@@ -60,10 +60,8 @@ void	check_arg(t_data *data, char **argv)
 			exit_mat(data, "Error\n");
 		else
 			data->num_list[i] = ft_atoli(data->num_mat[i]);
-			//ft_printf("%d", data->num_list[i]);
 		i++;
 	}
-//	ft_printf("\n");
 	free_mat(data);
 	is_rep(data);
 }
@@ -85,11 +83,9 @@ void	check_args(t_data *data, int argc, char **argv)
 		else
 		{
 			data->num_list[i - 1] = ft_atoli(argv[i]);
-//			ft_printf("%d", data->num_list[i - 1]);
 			i++;
 		}
 	}
-//	ft_printf("\n");
 	is_rep(data);
 }
 
@@ -101,7 +97,6 @@ void	check_args(t_data *data, int argc, char **argv)
 int	main(int argc, char **argv)
 {
 	t_data	data;
-//	int		i; // borrar
 
 //	atexit(leaks);
 	if (argc <= 1)
@@ -115,8 +110,6 @@ int	main(int argc, char **argv)
 		sort_three(&data);
 	else if (data.len_a > 3)
 		lets_sort(&data);
-//	ft_printf("The cheapest: pos %d\n", data.cheap);
-//	print_stack(data);
 	free_all(&data);
 	return (0);
 }

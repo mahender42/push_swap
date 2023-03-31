@@ -87,13 +87,5 @@ void	create_stack(t_data *data)
 	}
 	data->len_a = data->num_len;
 	data->len_b = 0;
-/*	i = 0; // borrar
-	ft_printf("stack_a\n");
-	while (i < data->len_a)
-	{
-		ft_printf("%d, ", data->stack_a[i].value);
-		i++;
-	}
-	ft_printf("\n");  // hasta aquí*/
 	ft_index(data);
 }

@@ -19,6 +19,7 @@ int	max_a(t_data *data)
 
 	i = 0;
 	max = data->stack_a[0].index;
+	data->pos_a_max = 0;
 	while (i < data->len_a)
 	{
 		if (data->stack_a[i].index > max)

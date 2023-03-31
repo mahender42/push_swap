@@ -15,12 +15,10 @@
 void	lets_sort(t_data *data)
 {
 	int	med;
-//	int	i;
 
 	med = data->len_a / 2;
 	while (data->len_a > 3)
 	{	
-//		ft_printf("index: %d, len_b: %d, med: %d\n", data->stack_a[0].index, data->len_b, med);
 		if ((data->stack_a[0].index > med) && (data->len_b < med))
 			rotate_a(data, 0);
 		else
@@ -32,8 +30,6 @@ void	lets_sort(t_data *data)
 	while (data->len_b > 0)
 	{
 		lets_move(data);
-		print_stack(data); // borrar
-//		ft_printf("\nlen_b = %d\n", data->len_b);
 	}
 	//chequear si ha quedado ordenado
 	if (!is_sorted(data->stack_a, data->len_a))
@@ -52,6 +48,7 @@ void	lets_move(t_data *data)
 		i++;
 	}
 	the_cheapest(data);
+//	print_stack(data);
 	move(data);
 	whereiam(data, 'a');
 	whereiam(data, 'b');
@@ -73,22 +70,20 @@ void	targetpos(t_data *data, int i)
 
 void	move(t_data *data)
 {
-	int	i;
+//	int	i;
 
-	i = data->cheap;
-	if (data->stack_b[i].cost_a < 0 || data->stack_b[i].cost_b < 0)
-		move_rev(data);
-	else if (data->stack_b[i].cost_a > 0 || data->stack_b[i].cost_b > 0)
-		move_rot(data);
+//	i = data->cheap;
+//	if (data->stack_b[i].cost_a < 0 || data->stack_b[i].cost_b < 0)
+	move_rev(data);
+//	else if (data->stack_b[i].cost_a > 0 || data->stack_b[i].cost_b > 0)
+	move_rot(data);
 	push_a(data);
 }
 
 void	final_rev(t_data *data)
 {
-	int	i;
 	int	len;
 
-	i = 0;
 	len = data->len_a - 1;
 //	ft_printf("\nOrdenado. Re-organizando\n");
 	while (data->stack_a[len].index < data->stack_a[0].index)

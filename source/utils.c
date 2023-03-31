@@ -85,12 +85,12 @@ void	whereiam(t_data *data, char c)
 	}
 }
 
-
+//borrar
 void	print_stack(t_data *data)
 {
 	int	i;
 
-	i = 0; // borrar
+	i = 0;
 	ft_printf("The cheapest: pos %d\n", data->cheap);
 	ft_printf("stack_a (index)\n");
 	while (i < data->len_a)
@@ -108,5 +108,5 @@ void	print_stack(t_data *data)
 			data->stack_b[i].cost_a, data->stack_b[i].cost_b, data->stack_b[i].total_cost);
 		i++;
 	}
-	ft_printf("\n"); // hasta aquí
+	ft_printf("\n");
 }
