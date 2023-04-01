@@ -6,7 +6,7 @@
 /*   By: mahender <mahender@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:24:16 by mahender          #+#    #+#             */
-/*   Updated: 2023/02/08 17:24:20 by mahender         ###   ########.fr       */
+/*   Updated: 2023/04/01 16:52:41 by mahender         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
 # include "printf/ft_printf.h"
 # include <unistd.h>
 # include <stdlib.h>
-# include <limits.h> //recordar borrar
-# include <stdio.h> //recordar borrar
+# include <limits.h>
 
 typedef struct s_stack
 {
@@ -97,12 +96,9 @@ int				max_a(t_data *data);
 int				min_a(t_data *data);
 int				next_one(t_data *data, int pos);
 void			move(t_data *data);
-void			move_rot(t_data *data);
-void			move_rev(t_data *data);
+void			move_ab(t_data *data);
+void			move_a(t_data *data);
+void			move_b(t_data *data);
 void			final_rev(t_data *data);
-
-// borrar
-
-void			print_stack(t_data *data);
 
 #endif

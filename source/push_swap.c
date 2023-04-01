@@ -89,16 +89,10 @@ void	check_args(t_data *data, int argc, char **argv)
 	is_rep(data);
 }
 
-/*static void	leaks(void)
-{
-	system ("leaks -q push_swap");
-}*/
-
 int	main(int argc, char **argv)
 {
 	t_data	data;
 
-//	atexit(leaks);
 	if (argc <= 1)
 		return (0);
 	else if (argc == 2)
@@ -113,18 +107,3 @@ int	main(int argc, char **argv)
 	free_all(&data);
 	return (0);
 }
-/*
-i = 0;
-	ft_printf("\nstack_a - push b\n");
-	while (i < data->len_a)
-	{
-		ft_printf("%d, ", data->stack_a[i].value);
-		i++;
-	}
-	ft_printf("\nstack_b\n");
-	i = 0;
-	while (i < data->len_b)
-	{
-		ft_printf("%d, ", data->stack_b[i].value);
-		i++;
-	}*/

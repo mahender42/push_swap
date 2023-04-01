@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lets_sort.c                                        :+:      :+:    :+:   */
+/*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahender <mahender@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 18:22:36 by mahender          #+#    #+#             */
-/*   Updated: 2023/03/14 18:22:39 by mahender         ###   ########.fr       */
+/*   Updated: 2023/04/01 16:51:26 by mahender         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	lets_sort(t_data *data)
 	{
 		lets_move(data);
 	}
-	//chequear si ha quedado ordenado
 	if (!is_sorted(data->stack_a, data->len_a))
 		final_rev(data);
 }
@@ -48,7 +47,6 @@ void	lets_move(t_data *data)
 		i++;
 	}
 	the_cheapest(data);
-//	print_stack(data);
 	move(data);
 	whereiam(data, 'a');
 	whereiam(data, 'b');
@@ -70,13 +68,9 @@ void	targetpos(t_data *data, int i)
 
 void	move(t_data *data)
 {
-//	int	i;
-
-//	i = data->cheap;
-//	if (data->stack_b[i].cost_a < 0 || data->stack_b[i].cost_b < 0)
-	move_rev(data);
-//	else if (data->stack_b[i].cost_a > 0 || data->stack_b[i].cost_b > 0)
-	move_rot(data);
+	move_ab(data);
+	move_a(data);
+	move_b(data);
 	push_a(data);
 }
 
@@ -85,7 +79,6 @@ void	final_rev(t_data *data)
 	int	len;
 
 	len = data->len_a - 1;
-//	ft_printf("\nOrdenado. Re-organizando\n");
 	while (data->stack_a[len].index < data->stack_a[0].index)
 		reverse_a(data, 0);
 }

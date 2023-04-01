@@ -65,7 +65,7 @@ void	ft_index(t_data *data)
 		sort_num_lis(data->num_list, data->num_len);
 		put_index(data);
 	}
-	else // ya está ordenado, me salgo
+	else
 	{
 		free_all(data);
 		exit(EXIT_SUCCESS);

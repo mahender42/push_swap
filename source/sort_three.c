@@ -6,7 +6,7 @@
 /*   By: mahender <mahender@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 17:38:46 by mahender          #+#    #+#             */
-/*   Updated: 2023/03/14 15:55:02 by mahender         ###   ########.fr       */
+/*   Updated: 2023/04/01 16:51:12 by mahender         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,6 @@ void	sort_three(t_data *data)
 		}
 	}
 }
-/*If the index of the first number is highest, do ra,
-Otherwise, if the index of the second number is highest, do rra,
-Then, if the index of the first number is bigger than the index of the second number, do sa.*/
 
 int	is_sorted(t_stack *stack, int len)
 {
